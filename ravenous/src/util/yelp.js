@@ -1,5 +1,5 @@
 const clientId = 'iF55A-Sa5vA2CefHCbWWTA';
-const secretGiven = 'YpitdLd6FbJYxUmkmQ1hQCP2qZvAE8k2AtrSqLJRJSAeF9IsfvLqlFAIxNGy8LyW';
+const secret = 'YpitdLd6FbJYxUmkmQ1hQCP2qZvAE8k2AtrSqLJRJSAeF9IsfvLqlFAIxNGy8LyW';
 let access_token;
 let Yelp = {
   getAccessToken(){
@@ -18,10 +18,10 @@ let Yelp = {
       headers: {
         Authorization: 'Bearer ${accessToken}'
       }
-    }).then(
-      return fetch('https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id=' + clientId + '&client_secret=' + secretGiven, {
+    }).then(()=>{
+      return fetch('https://cors-anywhere.herokuapp.com/https://api.yelp.com/oauth2/token?grant_type=client_credentials&client_id=' + clientId + '&client_secret=' + secret, {
         method: 'POST'}
-      )
+      )}
     ).then(
       jsonResponse => {
         if(jsonResponse.businesses){
